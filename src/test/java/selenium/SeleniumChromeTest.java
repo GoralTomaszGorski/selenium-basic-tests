@@ -24,14 +24,14 @@ public class SeleniumChromeTest {
 
     }
 
-    private static WebDriver getDriver(ChromeOptions options, String baseUrl) {
+    public WebDriver getDriver(ChromeOptions options, String baseUrl) {
         WebDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get(baseUrl);
         return driver;
     }
 
-    private static ChromeOptions getChromeOptions() {
+    public ChromeOptions getChromeOptions() {
         String path = "/home/tomaszgorski/Dokumenty/chromedriver-linux64/chromedriver";
         System.setProperty("webdriver.chrome.driver", path);
         WebDriverManager.chromedriver().setup();
