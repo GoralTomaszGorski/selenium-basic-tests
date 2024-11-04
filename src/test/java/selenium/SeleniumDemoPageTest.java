@@ -17,16 +17,12 @@ public class SeleniumDemoPageTest {
         this.seleniumChromeTest = seleniumChromeTest;
     }
 
-
-    
     @Test
     public void openSeleniumDemoPage2() {
         WebDriverManager.chromedriver().setup();
         String baseUrl = "http://seleniumdemo.com/";
 
         WebDriver driver = seleniumChromeTest.getDriver(seleniumChromeTest.getChromeOptions(), baseUrl);
-
-
 
         driver.findElement(
                 By.xpath("//span[text()='Shop']")).click();

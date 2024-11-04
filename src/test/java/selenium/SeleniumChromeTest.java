@@ -1,20 +1,17 @@
 package selenium;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Service
 public class SeleniumChromeTest {
-
 
     @Test
     public void openSeleniumDemoPage() {
@@ -23,7 +20,6 @@ public class SeleniumChromeTest {
         driver.findElement(By.xpath("//span[text()='Shop']")).click();
         WebElement seleniumProduct = driver.findElement(By.xpath("//h2[text()='Java Selenium WebDriver']"));
         Assert.assertTrue(seleniumProduct.isDisplayed());
-
     }
 
     public WebDriver getDriver(ChromeOptions options, String baseUrl) {
@@ -40,5 +36,4 @@ public class SeleniumChromeTest {
         options.setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.ACCEPT);
         return options;
     }
-
 }
