@@ -5,12 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
-
 
 public class SelectorTest {
 
@@ -23,7 +20,6 @@ public class SelectorTest {
 
         By buttonId = By.id("clickOnMe");
         WebElement clickOnMeButton = driver.findElement(buttonId);
-
 
         By firstName = By.name("fname");
         WebElement firstNameInput = driver.findElement(firstName);
@@ -47,5 +43,4 @@ public class SelectorTest {
         By partialLinkText = By.partialLinkText("Visit W3Scho");
         WebElement schoolPartaialLink = driver.findElement(partialLinkText);
     }
-
 }
