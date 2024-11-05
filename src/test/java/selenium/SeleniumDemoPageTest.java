@@ -30,7 +30,4 @@ public class SeleniumDemoPageTest {
                 By.xpath("//h2[text()='Java Selenium WebDriver']"));
         Assert.assertTrue(seleniumProduct.isDisplayed());
     }
-
-
-
 }
