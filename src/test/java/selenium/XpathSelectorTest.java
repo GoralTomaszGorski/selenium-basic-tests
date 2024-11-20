@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import java.util.List;
+
 public class XpathSelectorTest {
 
 
@@ -25,6 +27,33 @@ public class XpathSelectorTest {
         By shortPath = By.xpath("//ul");
         WebElement shortPathSelector = driver.findElement(shortPath);
         System.out.println(shortPathSelector);
+
+
+        By buttonId = By.xpath("//*[@id=\"clickOnMe\"]");
+        WebElement clickOnMeButton = driver.findElement(buttonId);
+        System.out.println(clickOnMeButton.hashCode());
+
+        By buttonIdFullName = By.xpath("/html/body/button[@id='clickOnMe']");
+        WebElement butElement = driver.findElement(buttonIdFullName);
+        System.out.println(butElement.hashCode());
+
+        By fnameInput = By.xpath("//*[@id=\"fname\"]");
+        WebElement fnameInputElement = driver.findElement(fnameInput);
+
+        By inputsLocator = By.xpath("//input");
+        WebElement inputElement = driver.findElement(inputsLocator);
+        driver.findElement(inputsLocator).sendKeys("coś wprowadzam w input nr 1");
+        List<WebElement> inputsList = driver.findElements(inputsLocator);
+        System.out.println("liczba inputów w liście: " + inputsList.size());
+
+        By linkText = By.xpath("//a[text()='Visit W3Schools.com!']");
+        WebElement schoolLink = driver.findElement(linkText);
+        System.out.println(schoolLink.hashCode());
+
+        By linkText2 = By.xpath("//a[contains(text(), 'Visit')] ");
+        WebElement schoolLink2 = driver.findElement(linkText2);
+        System.out.println(schoolLink2.hashCode());
+
 
     }
 }
