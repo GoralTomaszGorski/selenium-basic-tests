@@ -106,16 +106,16 @@ public class XpathSelectorTest {
         By anescorBy = By.xpath("//div/ancestor::*");
 
         WebElement childElement = driver.findElement(childUlBy);
-        List<WebElement> descsendaUlElements = driver.findElements(descendantUlBy);
-        List<WebElement> descsendaAllElements = driver.findElements(descendantAllBy);
-        List<WebElement> anescorElements = driver.findElements(anescorBy);
-        List<WebElement> descsendaElements = driver.findElements(descendantUlBy);
+        List<WebElement> descendantUlElements = driver.findElements(descendantUlBy);
+        List<WebElement> descendantAllElements = driver.findElements(descendantAllBy);
+        List<WebElement> ancestorElements = driver.findElements(anescorBy);
+        List<WebElement> descendantElements = driver.findElements(descendantUlBy);
 
         System.out.println(childElement.hashCode());
-        listPrinter(descsendaUlElements);
-        listPrinter(descsendaAllElements);
-        listPrinter(anescorElements);
-        listPrinter(descsendaElements);
+        listPrinter(descendantUlElements);
+        listPrinter(descendantAllElements);
+        listPrinter(ancestorElements);
+        listPrinter(descendantElements);
 
         //182 3:30
     }
