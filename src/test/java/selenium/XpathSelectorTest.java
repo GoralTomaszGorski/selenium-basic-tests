@@ -54,6 +54,19 @@ public class XpathSelectorTest {
         WebElement schoolLink2 = driver.findElement(linkText2);
         System.out.println(schoolLink2.hashCode());
 
+        By allXpath = By.xpath("//*");
+        driver.findElement(allXpath);
 
+        By secondElement = By.xpath("(//input)[2]");
+        driver.findElement(secondElement);
+
+        By lastElement = By.xpath("(//input)[last()]");
+        driver.findElement(lastElement);
+
+        By elementsWithAttribute = By.xpath("(//*[@name])");
+        driver.findElements(elementsWithAttribute);
+
+        By elementWithAttributeName = By.xpath("//*[@name='fname']");
+        driver.findElement(elementWithAttributeName);
     }
 }
