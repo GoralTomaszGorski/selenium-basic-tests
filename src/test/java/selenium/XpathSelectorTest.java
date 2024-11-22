@@ -86,11 +86,11 @@ public class XpathSelectorTest {
 
         By idButton = By.xpath("//button[@id='clickOnMe']");
         WebElement buttonWebElementById = driver.findElement(idButton);
-        System.out.println(buttonWebElementById.hashCode());
+        printer(buttonWebElementById);
 
-        By diffrentThemIdButton = By.xpath("//button[@id!='clickOnMe']");
-        WebElement buttonWebElementByIdDiffrent = driver.findElement(diffrentThemIdButton);
-        System.out.println(buttonWebElementByIdDiffrent.hashCode());
+        By differentThemIdButton = By.xpath("//button[@id!='clickOnMe']");
+        WebElement buttonWebElementByIdDifferent = driver.findElement(differentThemIdButton);
+        printer(buttonWebElementByIdDifferent);
 
         By xpathContainsBy = By.xpath("//*[contains(@name, 'ame')]");
         List<WebElement> containsNameList = driver.findElements(xpathContainsBy);
@@ -105,6 +105,7 @@ public class XpathSelectorTest {
         By descendantAllBy = By.xpath("//div/descendant::*");
         By anescorBy = By.xpath("//div/ancestor::*");
 
+
         WebElement childElement = driver.findElement(childUlBy);
         List<WebElement> descendantUlElements = driver.findElements(descendantUlBy);
         List<WebElement> descendantAllElements = driver.findElements(descendantAllBy);
@@ -117,8 +118,32 @@ public class XpathSelectorTest {
         listPrinter(ancestorElements);
         listPrinter(descendantElements);
 
-        //182 3:30
+
+        By img = By.xpath("//img");
+        By nextByImg = By.xpath("//img/following::*");
+        By imgSibling = By.xpath("//img/following-sibling::*");
+        By beforeImg = By.xpath("//img/preceding-sibling::*");
+
+        driver.findElement(img);
+        driver.findElement(nextByImg);
+        driver.findElement(imgSibling);
+        driver.findElement(beforeImg);
+
+
+
+        By divAndLinkBy = By.xpath("//input | //a");
+        By linkAndDivBy = By.xpath("//a | //div");
+        By inputAndIdBy = By.xpath("//input[@name='fname' and @id='fname']");
+        By inputOrIdBy = By.xpath("//input[@name='blabla' or @id='fname']");
+
+        List<WebElement> divAndLinkByList = driver.findElements(divAndLinkBy);
+        List<WebElement> linkAndDivByList = driver.findElements(linkAndDivBy);
+        List<WebElement> inputAndIdByList = driver.findElements(inputAndIdBy);
+        List<WebElement> inputOrIdByList = driver.findElements(inputOrIdBy);
+
+        listPrinter(divAndLinkByList);
+        listPrinter(linkAndDivByList);
+        listPrinter(inputAndIdByList);
+        listPrinter(inputOrIdByList);
     }
-
-
 }
