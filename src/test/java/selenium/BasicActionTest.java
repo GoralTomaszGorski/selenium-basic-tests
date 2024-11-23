@@ -1,6 +1,7 @@
 package selenium;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,10 +21,16 @@ public class BasicActionTest {
                 By.linkText("Podstawowa strona testowa")
         );
         basicLink.click();
+        driver.findElement(By.id("clickOnMe")).click();
+        driver.switchTo().alert().accept();
+        driver.findElement(By.name("fname")).sendKeys("Tomek");
 
-
-
-
+        WebElement userNameInput = driver.findElement(By.name("username"));
+        userNameInput.clear();
+        userNameInput.sendKeys("Admin");
+        userNameInput.sendKeys(Keys.ENTER);
+        driver.switchTo().alert().accept();
+        driver.switchTo().alert().accept();
 
     }
 }
