@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -32,5 +33,13 @@ public class BasicActionTest {
         driver.switchTo().alert().accept();
         driver.switchTo().alert().accept();
 
+        driver.findElement(By.cssSelector("[type='checkbox']")).click();
+        driver.findElement(By.cssSelector("[value='female']")).click();
+
+        WebElement selectCar = driver.findElement(
+                By.cssSelector("select")
+        );
+        Select cars = new Select(selectCar);
+        cars.selectByVisibleText("Saab");
     }
 }
