@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.util.List;
 
 public class BasicActionTest {
 
@@ -41,5 +42,14 @@ public class BasicActionTest {
         );
         Select cars = new Select(selectCar);
         cars.selectByVisibleText("Saab");
+
+        WebElement selectCar2 = driver.findElement(By.cssSelector("select"));
+        Select cars2 = new Select(selectCar2);
+        cars.selectByValue("volvo");
+
+        List<WebElement> carList = cars2.getOptions();
+        for (WebElement options : carList) {
+            System.out.println(options.getText());
+        }
     }
 }
