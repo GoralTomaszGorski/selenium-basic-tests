@@ -14,7 +14,7 @@ import java.util.List;
 public class BasicActionTest {
 
     @Test
-    public void performAction(){
+    static void performAction(){
         WebDriver driver = new ChromeDriver();
         WebDriverManager.chromedriver().setup();
         driver.get("https://testeroprogramowania.github.io/selenium/");
@@ -51,5 +51,9 @@ public class BasicActionTest {
         for (WebElement options : carList) {
             System.out.println(options.getText());
         }
+
+        CheckSelector checkSelector = new CheckSelector();
+        System.out.println(checkSelector.checker("audi", selectCar));
+        System.out.println(checkSelector.checker("jeep", selectCar));
     }
 }
