@@ -1,9 +1,6 @@
 package selenium;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
@@ -30,8 +27,11 @@ public class BasicActionTest {
         WebElement userNameInput = driver.findElement(By.name("username"));
         userNameInput.clear();
         userNameInput.sendKeys("Admin");
+        System.out.println(userNameInput.getAttribute("value"));
+
         userNameInput.sendKeys(Keys.ENTER);
-        driver.switchTo().alert().accept();
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
         driver.switchTo().alert().accept();
 
         driver.findElement(By.cssSelector("[type='checkbox']")).click();
@@ -55,5 +55,10 @@ public class BasicActionTest {
         CheckSelector checkSelector = new CheckSelector();
         System.out.println(checkSelector.checker("audi", selectCar));
         System.out.println(checkSelector.checker("jeep", selectCar));
+
+        WebElement paragraph = driver.findElement(By.cssSelector(".topSecret"));
+        System.out.println("By text: " + paragraph.getText());
+        System.out.println("By value: " + paragraph.getAttribute("value"));
+        System.out.println("By content: " + paragraph.getAttribute("textContent"));
     }
 }
