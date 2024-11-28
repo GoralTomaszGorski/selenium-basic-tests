@@ -31,6 +31,8 @@ public class NewWindowTest {
         driver.findElement(
                 By.linkText("Strona z iframe"))
                 .click();
+        String iframePage = driver.getWindowHandle();
+
         WebElement iframe = driver.findElement(By.cssSelector("[src='basics.html']"));
         driver.switchTo().frame(iframe);
 
