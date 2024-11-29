@@ -5,23 +5,10 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
 public class NewWindowTest {
 
-
-    public static void printer(WebElement webElement){
-        System.out.println(webElement.hashCode());
-    }
-
-    public static void listPrinter(List<WebElement> webElementsList) {
-        for (int i = 0; i < webElementsList.size(); i++) {
-            System.out.print(i+1+". ");
-            printer(webElementsList.get(i));
-        }
-    }
     @Test
-    public void testNewWindow() throws InterruptedException {
+    public void testNewWindow(){
         WebDriver driver = new ChromeDriver();
         WebDriverManager.chromedriver().setup();
         driver.get("https://testeroprogramowania.github.io/selenium/");
@@ -39,6 +26,14 @@ public class NewWindowTest {
         driver.findElement(By.id("fname")).sendKeys("Tomek");
         driver.switchTo().defaultContent();
         System.out.println(driver.findElement(By.tagName("h1")).getText());
+    }
 
+    @Test
+    public void testGooglePage() {
+        WebDriver driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        driver.get("https://google.com");
+        WebElement ac = driver.findElement(By.xpath("//*[@id=\"L2AGLb\"]"));
+        ac.click();
     }
 }
