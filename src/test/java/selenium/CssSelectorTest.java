@@ -29,7 +29,6 @@ public class CssSelectorTest {
         List<WebElement> inputsByCss = driver.findElements(cssTag);
         System.out.println(inputsByCss);
 
-
         By all = By.cssSelector("*");
         List<WebElement> allElements = driver.findElements(all);
 
