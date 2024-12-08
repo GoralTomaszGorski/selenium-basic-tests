@@ -21,11 +21,15 @@ public class UploadTest {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("https://testeroprogramowania.github.io/selenium/fileupload.html");
-        Actions actions = new Actions(driver);
-        actions.contextClick(driver.findElement(By.id("myFile"))).perform();
+
+        int randomNumber = (int) (Math.random()*1000);
+        String fileName = "befereUpload" + randomNumber + ".jpg";
 
         TakesScreenshot screenshot = (TakesScreenshot) driver;
-        File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(srcFile, new File("/home/tomaszgorski/IdeaProjects/Selenium/src/main/resources/static/screenshots//home/tomaszgorski/IdeaProjects/Selenium/src/main/resources/static/screenshot.jpg"));
+        File before = screenshot.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(before, new File("../Selenium/src/main/resources/static/Screenshot"+randomNumber));
+
+        Actions actions = new Actions(driver);
+        actions.contextClick(driver.findElement(By.id("myFile"))).perform();
     }
 }
