@@ -1,6 +1,5 @@
 package selenium;
 
-import ch.qos.logback.core.util.FileUtil;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -23,11 +22,10 @@ public class UploadTest {
         driver.get("https://testeroprogramowania.github.io/selenium/fileupload.html");
 
         int randomNumber = (int) (Math.random()*1000);
-        String fileName = "befereUpload" + randomNumber + ".jpg";
 
         TakesScreenshot screenshot = (TakesScreenshot) driver;
         File before = screenshot.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(before, new File("../Selenium/src/main/resources/static/Screenshot"+randomNumber));
+        FileUtils.copyFile(before, new File("../Selenium/src/main/resources/static/Screenshot"+randomNumber+".jpg"));
 
         Actions actions = new Actions(driver);
         actions.contextClick(driver.findElement(By.id("myFile"))).perform();
